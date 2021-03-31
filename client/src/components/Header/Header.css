@@ -1,0 +1,29 @@
+.bgcontainer {
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-color);
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  max-width: 96rem;
+  height: 100%;
+  margin: 0 28px;
+  padding: 16px;
+  align-items: center;
+}
+
+.logo {
+  width: 100%;
+  height: 100%;
+}
+
+.logo img {
+  width: 6rem;
+}
+
+.about h2 {
+  font-size: 1.3rem;
+  color: white;
+}
