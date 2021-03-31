@@ -7,9 +7,9 @@
 .container {
   display: flex;
   flex-direction: row;
-  max-width: 96rem;
+  max-width: 1100px;
   height: 100%;
-  margin: 0 28px;
+  margin: 1rem auto;
   padding: 16px;
   align-items: center;
 }
@@ -20,10 +20,14 @@
 }
 
 .logo img {
-  width: 6rem;
+  width: 5.5rem;
 }
 
 .about h2 {
   font-size: 1.3rem;
   color: white;
+}
+
+a {
+  text-decoration: none;
 }

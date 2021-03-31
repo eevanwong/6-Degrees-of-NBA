@@ -1,27 +1,26 @@
-const express = require('express');
-const bodyParser = require('body-parser')
-const mysql = require('mysql');
+const express = require("express");
+const bodyParser = require("body-parser");
+const neo4j = require("neo4j-driver");
 
 const PORT = process.env.PORT || 3001;
-
-const app = express()
+const USER = process.env.USER;
+const PASS = process.env.PASS;
+const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-let con = mysql.createConnection({
-    host: process.env.con,
-    user: process.env.user,
-    password: process.env.pass
-  });
+const driver = neo4j.driver(process.env.URI, neo4j.auth.basic(USER, PASS));
+
+const session = driver.session();
 
 app.listen(PORT, () => {
-    console.log('listening')
-}) 
+  console.log("listening");
+});
 
-app.get('/', (req,res) => {
-    res.json({message:"welcome"})
-})
+app.get("/", (req, res) => {
+  res.json({ message: "welcome" });
+});
 
-app.get("/getPlayers", (req,res) => {
-    res.json({message:"Yooooo"})
-})
+app.get("/getPlayers", (req, res) => {
+  res.json({ message: "Yooooo" });
+});
