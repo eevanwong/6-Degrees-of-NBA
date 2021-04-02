@@ -45,6 +45,10 @@ input[type="text"] {
   border-radius: 5px;
 }
 
+.invalid {
+  color: white;
+}
+
 .search {
   display: flex;
   justify-content: center;
@@ -66,6 +70,12 @@ input[type="text"] {
 .search button p {
   font-size: 24px;
   font-weight: 600;
+}
+
+input[type="text"],
+textarea,
+select {
+  outline: none;
 }
 
 @media (max-width: 1000px) {

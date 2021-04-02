@@ -8,8 +8,13 @@ export default function Footer() {
       <div className="footer-container">
         <div className="margin">
           <div className="copyright">
-            Developed by
-            <Link href="https://github.com/eevanwong"> eevanwong </Link>
+            <h2>
+              Developed by
+              <span> </span>
+              <a href="https://github.com/eevanwong" target="_blank">
+                eevanwong
+              </a>
+            </h2>
           </div>
         </div>
       </div>

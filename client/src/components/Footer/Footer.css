@@ -1,0 +1,26 @@
+.footer-container {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+
+  background-color: var(--background-color);
+}
+
+.copyright {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.copyright h2 {
+  font-size: 24px;
+  font-weight: 500;
+  color: whitesmoke;
+}
+
+.copyright a {
+  color: sandybrown;
+}
+
+.copyright a:hover {
+  text-decoration: underline;
+}
