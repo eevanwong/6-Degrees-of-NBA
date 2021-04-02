@@ -1,0 +1,22 @@
+.search {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-top: 24px;
+}
+
+.search button {
+  padding: 8px 24px;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  color: var(--background-color);
+  background-color: #f9a01b;
+}
+
+.search button p {
+  font-size: 24px;
+  font-weight: 600;
+}
