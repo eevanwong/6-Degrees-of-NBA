@@ -16,13 +16,21 @@ export default function Node(props) {
             <div className="player-img">
               <img
                 src={
-                  "https://www.basketball-reference.com/req/202103225/images/players/" + //THANK YOU SO FUCKING MUCH BASKETBALL REFERENCE
+                  "https://www.basketball-reference.com/req/202103225/images/players/" +
                   splitName[1].substring(0, 5) +
                   splitName[0].substring(0, 2) +
                   "01" +
                   ".jpg"
                 }
-                alt={"img"}
+                style={{
+                  backgroundImage: `url(${
+                    "https://www.basketball-reference.com/req/202103225/images/players/" +
+                    splitName[1].substring(0, 5) +
+                    splitName[0].substring(0, 2) +
+                    "02" +
+                    ".jpg"
+                  })`,
+                }}
               />
             </div>
             <div className="player-txt">{props.name.toUpperCase()}</div>
