@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import { Link } from "react-router-dom";
 import "./Header.css";
 import logo from "../../assets/imgs/sixdeglogo1.png";

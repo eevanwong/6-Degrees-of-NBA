@@ -9,8 +9,10 @@
   flex-direction: row;
   max-width: 1100px;
   height: 100%;
-  margin: 1rem auto;
-  padding: 16px;
+  margin: 0 auto;
+  margin-top: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   align-items: center;
 }
 

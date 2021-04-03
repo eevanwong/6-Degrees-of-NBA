@@ -16,7 +16,10 @@ app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Headers", "*");
   next();
 });
-const driver = neo4j.driver(process.env.URI, neo4j.auth.basic(USER, PASS));
+const driver = neo4j.driver(process.env.URI, neo4j.auth.basic(USER, PASS), {
+  maxConnectionPoolSize: 10,
+  connectionAcquisitionTimeout: 30000,
+});
 
 const session = driver.session();
 
@@ -34,7 +37,7 @@ app.get("/", (req, res) => {
 app.get("/getConnections", async (req, res) => {
   console.log("Querying neo4j database");
   const results = await session.run(
-    "match (m:Player {name: $Player1 }), (n:Player {name: $Player2 }), p=shortestPath((m)-[*..6]-(n)) return p",
+    "match (m:Player {name: $Player1 }), (n:Player {name: $Player2 }), p=shortestPath((m)-[*]-(n)) return p",
     { Player1: player1, Player2: player2 }
   );
   player1 = "";
@@ -43,25 +46,26 @@ app.get("/getConnections", async (req, res) => {
   const record = results.records[0];
 
   if (record === undefined) {
-    res.json({ response: "Connections not found" });
+    res.send(null);
   } else {
     const node = record.get(0);
     console.log("results are:");
 
+    const RESULTS = [];
+
     for (let i = 0; i < node.segments.length; i++) {
-      console.log(node.segments[i].start);
+      RESULTS.push(node.segments[i].start);
     }
-    console.log(node.segments[node.segments.length - 1].end);
+    RESULTS.push(node.segments[node.segments.length - 1].end);
 
-    //this will get all of the nodes
-
-    res.json({ response: results });
+    console.log(RESULTS);
+    res.json(RESULTS);
   }
 });
 
 app.post("/getConnections", (req, res) => {
-  player1 = req.query.player1.toLowerCase();
-  player2 = req.query.player2.toLowerCase();
+  player1 = req.query.player1.toLowerCase().trim();
+  player2 = req.query.player2.toLowerCase().trim();
   console.log("Request to find connection between:");
   console.log(player1 + " & " + player2);
   res.json({ response: "Successfully initialized values" });
