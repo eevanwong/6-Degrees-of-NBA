@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import defaultDiacriticsRemovalMap from "./DiacriticsMap";
 import Directory from "./Directory";
-import Loading from "../../Loading/Loading";
 import "./Node.css";
 
 export default function Node(props) {
@@ -70,6 +69,7 @@ export default function Node(props) {
                     ".jpg"
                   })`,
                 }}
+                alt=""
               />
             </div>
             <div className="player-txt">

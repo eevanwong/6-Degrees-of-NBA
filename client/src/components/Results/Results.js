@@ -76,7 +76,7 @@ export default function Results() {
                 <Node
                   type={node.labels[0]}
                   name={node.properties.name}
-                  index={i}
+                  key={i}
                 />
               );
             })}

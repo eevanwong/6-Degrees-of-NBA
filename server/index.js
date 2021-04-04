@@ -1,21 +1,22 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const neo4j = require("neo4j-driver");
-const axios = require("axios");
 require("dotenv").config();
 
-const PORT = process.env.PORT || 3001;
+const PORT = parseInt(process.env.PORT) || 3001;
 const USER = process.env.USER;
 const PASS = process.env.PASS;
+
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
   res.setHeader("Access-Control-Allow-Headers", "*");
   next();
 });
+
 const driver = neo4j.driver(process.env.URI, neo4j.auth.basic(USER, PASS), {
   maxConnectionPoolSize: 10,
   connectionAcquisitionTimeout: 30000,
@@ -24,31 +25,30 @@ const driver = neo4j.driver(process.env.URI, neo4j.auth.basic(USER, PASS), {
 
 const session = driver.session();
 
-let player1 = ""; //theres gotta be a better way to do this lol
-let player2 = "";
+let players = {};
 
 app.listen(PORT, () => {
-  console.log("listening");
+  console.log("listening" + " " + PORT);
 });
 
 app.get("/", (req, res) => {
-  res.json({ message: "welcome" });
+  res.send({ message: "welcome" });
 });
 
 app.get("/getConnections", async (req, res) => {
-  console.log("Querying neo4j database");
-  let path = {};
+  //console.log("Querying neo4j database");
+  let path = null; //arbitrary null value
   try {
     path = await session.run(
       "match (m:Player {name: $Player1 }), (n:Player {name: $Player2 }), p=shortestPath((m)-[*..6]-(n)) return p",
-      { Player1: player1, Player2: player2 }
+      { Player1: players.P1, Player2: players.P2 }
     );
   } catch (err) {
     res.send("NMF");
   } finally {
-    player1 = "";
-    player2 = "";
+    players = {};
 
+    console.log(path);
     if (path.records.length === 0) {
       res.send("NMF"); //NO MATCHES FOUND
     }
@@ -59,26 +59,25 @@ app.get("/getConnections", async (req, res) => {
       res.send(null);
     } else {
       const node = record.get(0);
-      console.log("results are:");
 
-      console.log(node);
       const RESULTS = [];
 
       for (let i = 0; i < node.segments.length; i++) {
         RESULTS.push(node.segments[i].start);
       }
       RESULTS.push(node.segments[node.segments.length - 1].end);
-
-      console.log(RESULTS);
-      res.json(RESULTS);
+      res.send(RESULTS);
     }
   }
 });
 
 app.post("/getConnections", (req, res) => {
-  player1 = req.query.player1.toLowerCase().trim();
-  player2 = req.query.player2.toLowerCase().trim();
+  console.log(".");
+  let player1 = req.query.player1.toLowerCase().trim(); //why is it the query?
+  let player2 = req.query.player2.toLowerCase().trim();
+
+  players = { P1: player1, P2: player2 };
   console.log("Request to find connection between:");
-  console.log(player1 + " & " + player2);
-  res.json({ response: "Successfully initialized values" });
+  console.log(players.P1 + " & " + players.P2);
+  res.send("Success");
 });

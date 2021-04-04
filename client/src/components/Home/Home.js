@@ -8,6 +8,7 @@ export default function Home(props) {
   const [message, setMessage] = useState("");
   const [player1, setPlayer1] = useState("");
   const [player2, setPlayer2] = useState("");
+
   function handleSubmit(e) {
     e.preventDefault();
     if (player1 === "" || player2 === "") {
@@ -25,7 +26,7 @@ export default function Home(props) {
       params.append("player2", player2);
 
       axios({
-        method: "post",
+        method: "POST",
         url: "http://localhost:3001/getConnections",
         params: params,
         headers: {
@@ -34,7 +35,6 @@ export default function Home(props) {
         },
       })
         .then((res) => {
-          console.log(res);
           props.history.push("/results");
         })
         .catch((err) => {
@@ -49,12 +49,7 @@ export default function Home(props) {
           Discover how your <span>favourite NBA players</span> are connected
           within <span>6 degrees</span>
         </div>
-        <form
-          action="/getConnection"
-          method="POST"
-          onSubmit={handleSubmit}
-          autoComplete="off"
-        >
+        <form onSubmit={handleSubmit} autoComplete="off">
           <div className="inputs">
             <input
               type="text"
