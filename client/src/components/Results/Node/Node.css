@@ -6,14 +6,13 @@
   border-width: 1.5px;
   border-color: #e4e4e4;
   border-radius: 10px;
-
   margin: 0 auto;
   margin-bottom: 2rem;
   background-color: white;
 }
 
 .team-container {
-  max-width: 275px;
+  max-width: 300px;
   height: 100%;
   border-radius: 5px;
 }
@@ -21,6 +20,7 @@
 .player-node {
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
   margin: 0 auto;
 }
 
@@ -36,21 +36,37 @@
 }
 
 .team-img img {
+  width: 125px;
+  height: 125px;
   border-radius: 8px 0px 0px 8px;
 }
 .player-img img {
+  width: 100px;
   height: 150px;
-  border-radius: 8px 0px 0px 8px;
+  border-radius: 30px;
 }
 
 .player-txt,
 .team-txt {
   display: flex;
   flex-direction: column;
-  margin-top: 2rem;
+  width: 100%;
+  margin-top: 1rem;
   margin-left: 0.75rem;
-
-  color: #282222;
+  margin-right: 0.75rem;
+  letter-spacing: 0.5px;
+  line-height: 110%;
+  color: var(--background-color);
   font-size: 1.4rem;
   font-weight: 600;
+}
+
+.text {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-size: 2rem;
+  color: #e4e4e4;
+  font-weight: 600;
+  margin-bottom: 2rem;
 }

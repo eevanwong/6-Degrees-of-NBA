@@ -19,8 +19,10 @@
 
 .copyright a {
   color: sandybrown;
+  text-decoration: underline;
+  transition: 0.2s ease;
 }
 
 .copyright a:hover {
-  text-decoration: underline;
+  color: palevioletred;
 }

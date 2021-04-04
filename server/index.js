@@ -19,6 +19,7 @@ app.use((req, res, next) => {
 const driver = neo4j.driver(process.env.URI, neo4j.auth.basic(USER, PASS), {
   maxConnectionPoolSize: 10,
   connectionAcquisitionTimeout: 30000,
+  maxTransactionRetryTime: 10000,
 });
 
 const session = driver.session();
@@ -36,14 +37,25 @@ app.get("/", (req, res) => {
 
 app.get("/getConnections", async (req, res) => {
   console.log("Querying neo4j database");
-  const results = await session.run(
+  const path = await session.run(
     "match (m:Player {name: $Player1 }), (n:Player {name: $Player2 }), p=shortestPath((m)-[*]-(n)) return p",
     { Player1: player1, Player2: player2 }
   );
+  // .subscribe({
+  //   onError: (err) => {
+  //     console.log(err);
+  //   },
+  // });
+
+  console.log(path);
   player1 = "";
   player2 = "";
 
-  const record = results.records[0];
+  if (path.records.length === 0) {
+    res.send("NMF"); //NO MATCHES FOUND
+  }
+
+  const record = path.records[0];
 
   if (record === undefined) {
     res.send(null);
@@ -51,6 +63,7 @@ app.get("/getConnections", async (req, res) => {
     const node = record.get(0);
     console.log("results are:");
 
+    console.log(node);
     const RESULTS = [];
 
     for (let i = 0; i < node.segments.length; i++) {

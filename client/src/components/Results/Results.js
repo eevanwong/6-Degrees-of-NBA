@@ -30,34 +30,62 @@ export default function Results() {
   //console.log(path);
   console.log(nodes);
 
-  return (
-    <div className="results-container">
-      {nodes.length === 0 || nodes === null || nodes === undefined ? (
-        <Loading />
-      ) : (
+  if (nodes === null || nodes === undefined) {
+    return (
+      <div className="results-container">
         <div className="margin">
-          <div className="home-text">
-            How is <span>{nodes[0].properties.name.toUpperCase()}</span> and
-            <span>
-              {"  " + nodes[nodes.length - 1].properties.name.toUpperCase()}
-            </span>
-            {"  "}
-            connected?
-          </div>
-          {nodes.map((node, i) => {
-            return (
-              <Node
-                type={node.labels[0]}
-                name={node.properties.name}
-                index={i}
-              />
-            );
-          })}
+          <Loading />
         </div>
-      )}
-      <Link to="/">
-        <Button text="Discover a new connection" />
-      </Link>
-    </div>
-  );
+      </div>
+    );
+  } else if (nodes === "NMF" || nodes.length === 0) {
+    return (
+      <div className="results-container">
+        <div className="margin">
+          <div className="results-text">
+            Oop. Something went wrong.
+            <br />
+            <span>
+              {" "}
+              <Link to="/help">What happened?</Link>
+            </span>
+          </div>
+          <Link to="/">
+            <Button text="Discover a new connection" />
+          </Link>
+        </div>
+      </div>
+    );
+  } else {
+    return (
+      <div className="results-container">
+        {nodes.length === 0 || nodes === null || nodes === undefined ? (
+          <Loading />
+        ) : (
+          <div className="margin">
+            <div className="results-text">
+              How is <span>{nodes[0].properties.name.toUpperCase()}</span> and
+              <span>
+                {"  " + nodes[nodes.length - 1].properties.name.toUpperCase()}
+              </span>
+              {"  "}
+              connected?
+            </div>
+            {nodes.map((node, i) => {
+              return (
+                <Node
+                  type={node.labels[0]}
+                  name={node.properties.name}
+                  index={i}
+                />
+              );
+            })}
+          </div>
+        )}
+        <Link to="/">
+          <Button text="Discover a new connection" />
+        </Link>
+      </div>
+    );
+  }
 }

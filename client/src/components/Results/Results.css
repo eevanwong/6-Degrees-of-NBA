@@ -7,13 +7,26 @@
   margin-bottom: 4rem;
 }
 
-.home-text {
+.results-text {
   font-size: 2.5rem;
   color: #e4e4e4;
   font-weight: 600;
-  margin-bottom: 2rem;
+  margin-top: 3rem;
+  margin-bottom: 5rem;
+  text-align: center;
 }
 
-.margin {
+.results-text span a {
+  letter-spacing: 0.5px;
+  text-decoration: underline;
+  color: #f9a01b;
+  transition: 0.2s ease;
+}
+
+.results-text span a:hover {
+  color: purple;
+}
+
+.results-text .margin {
   margin: 1.5rem 4rem;
 }
