@@ -26,9 +26,17 @@ export default function About() {
                 Fanatics.com social network of NBA players
               </a>
             </span>
-            . This website illustrates the 6 degrees of seperation, the idea
-            that all people on average are six, or fewer, social connections
-            away from each other.
+            . This website illustrates the{" "}
+            <span>
+              <a
+                href="https://en.wikipedia.org/wiki/Six_degrees_of_separation"
+                target="_blank"
+              >
+                Six degrees of seperation{" "}
+              </a>
+            </span>
+            , the idea that all people on average are six, or fewer, social
+            connections away from each other.
             <br />
             <br />
             Six Degrees of NBA showcases that players are interconnected no

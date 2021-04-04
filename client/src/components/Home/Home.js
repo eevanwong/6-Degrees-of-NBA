@@ -5,15 +5,19 @@ import Button from "../Button/Button";
 
 export default function Home(props) {
   const [validInput, setValidInput] = useState(true);
-
+  const [message, setMessage] = useState("");
   const [player1, setPlayer1] = useState("");
-
   const [player2, setPlayer2] = useState("");
-
   function handleSubmit(e) {
     e.preventDefault();
-    if (player1 === "" || player2 === "") setValidInput(false);
-    else {
+    if (player1 === "" || player2 === "") {
+      setMessage("Warning: Make sure to have both name boxes filled in!");
+      setValidInput(false);
+    } else if (player1 === player2) {
+      setMessage(
+        "Warning: Connections can not be made between the same player!"
+      );
+    } else {
       setValidInput(true);
 
       let params = new URLSearchParams();
@@ -67,13 +71,7 @@ export default function Home(props) {
               onChange={(e) => setPlayer2(e.target.value)}
             />
           </div>
-          {validInput ? (
-            ""
-          ) : (
-            <div className="invalid">
-              Warning: Make sure to have both name boxes filled in!
-            </div>
-          )}
+          {validInput ? "" : <div className="invalid">{message}</div>}
           <Button text="Search" />
         </form>
       </div>

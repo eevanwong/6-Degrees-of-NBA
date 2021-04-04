@@ -30,7 +30,7 @@ export default function Results() {
   //console.log(path);
   console.log(nodes);
 
-  if (nodes === null || nodes === undefined) {
+  if (nodes === null || nodes === undefined || nodes.length === 0) {
     return (
       <div className="results-container">
         <div className="margin">
