@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Home.css";
 import axios from "axios";
 import Button from "../Button/Button";
+require("dotenv").config();
 
 export default function Home(props) {
   const [validInput, setValidInput] = useState(true);
@@ -27,10 +28,10 @@ export default function Home(props) {
 
       axios({
         method: "POST",
-        url: "http://localhost:3001/getConnections",
+        url: process.env.URL + "getConnections",
         params: params,
         headers: {
-          "Access-Control-Allow-Origin": "http://localhost:3001/getConnections",
+          "Access-Control-Allow-Origin": process.env.URL + "getConnections",
           "Access-Control-Allow-Headers": "*",
         },
       })

@@ -5,6 +5,7 @@ import Loading from "../Loading/Loading";
 import Button from "../Button/Button";
 import axios from "axios";
 import "./Results.css";
+require("dotenv").config();
 
 export default function Results() {
   const [nodes, setNodes] = useState([]);
@@ -12,9 +13,9 @@ export default function Results() {
   useEffect(() => {
     axios({
       method: "get",
-      url: "http://localhost:3001/getConnections",
+      url: process.env.URL + "getConnections",
       headers: {
-        "Access-Control-Allow-Origin": "http://localhost:3001/getConnections",
+        "Access-Control-Allow-Origin": process.env.URL + "getConnections",
         "Access-Control-Allow-Headers": "*",
       },
     })
