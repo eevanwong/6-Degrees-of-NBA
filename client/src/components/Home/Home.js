@@ -2,11 +2,14 @@ import React, { useState } from "react";
 import "./Home.css";
 import axios from "axios";
 import Button from "../Button/Button";
-require("dotenv").config();
+import Options from "./Options/Names";
+import Select, { createFilter } from "react-select";
+import { FixedSizeList as List } from "react-window";
 
 export default function Home(props) {
   const [validInput, setValidInput] = useState(true);
   const [message, setMessage] = useState("");
+
   const [player1, setPlayer1] = useState("");
   const [player2, setPlayer2] = useState("");
 
@@ -16,22 +19,24 @@ export default function Home(props) {
       setMessage("Warning: Make sure to have both name boxes filled in!");
       setValidInput(false);
     } else if (player1 === player2) {
+      setValidInput(false);
       setMessage(
         "Warning: Connections can not be made between the same player!"
       );
     } else {
       setValidInput(true);
-
+      console.log(player1);
       let params = new URLSearchParams();
-      params.append("player1", player1);
-      params.append("player2", player2);
+      params.append("player1", player1.value);
+      params.append("player2", player2.value);
 
       axios({
         method: "POST",
-        url: process.env.URL + "getConnections",
+        url: "http://localhost:3001/" + "getConnections",
         params: params,
         headers: {
-          "Access-Control-Allow-Origin": process.env.URL + "getConnections",
+          "Access-Control-Allow-Origin":
+            "http://localhost:3001/" + "getConnections",
           "Access-Control-Allow-Headers": "*",
         },
       })
@@ -43,6 +48,25 @@ export default function Home(props) {
         });
     }
   }
+
+  const height = 35;
+
+  function MenuList(props) {
+    const { options, children, maxHeight, getValue } = props;
+    const [value] = getValue();
+    const initialOffset = options.indexOf(value) * height;
+    return (
+      <List
+        height={maxHeight}
+        itemCount={children.length}
+        itemSize={height}
+        initialScrollOffset={initialOffset}
+      >
+        {({ index, style }) => <div style={style}>{children[index]}</div>}
+      </List>
+    );
+  }
+
   return (
     <div className="home-container">
       <div className="margin">
@@ -52,20 +76,27 @@ export default function Home(props) {
         </div>
         <form onSubmit={handleSubmit} autoComplete="off">
           <div className="inputs">
-            <input
-              type="text"
-              placeholder="ex. LeBron James"
-              name="player1"
-              value={player1}
-              onChange={(e) => setPlayer1(e.target.value)}
-            />
-            <input
-              type="text"
-              placeholder="ex. James Harden"
-              name="player2"
-              value={player2}
-              onChange={(e) => setPlayer2(e.target.value)}
-            />
+            <div className="input">
+              <Select
+                components={{ MenuList }}
+                value={player1}
+                onChange={(selected) => setPlayer1(selected)}
+                options={Options}
+                filterOption={createFilter({ ignoreAccents: false })}
+                placeholder="ex. Lebron James"
+              />
+            </div>
+            <div className="spacer"></div>
+            <div className="input">
+              <Select
+                components={{ MenuList }}
+                value={player2}
+                onChange={(selected) => setPlayer2(selected)}
+                options={Options}
+                filterOption={createFilter({ ignoreAccents: false })}
+                placeholder="ex. James Harden"
+              />
+            </div>
           </div>
           {validInput ? "" : <div className="invalid">{message}</div>}
           <Button text="Search" />

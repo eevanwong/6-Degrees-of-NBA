@@ -83,7 +83,7 @@ export default function Node(props) {
         </div>
       ) : (
         <>
-          <div className="text">who played on:</div>
+          <div className="text">who played on</div>
           <div className="team-container">
             <div className="team-node">
               <div className="team-img">
@@ -103,7 +103,7 @@ export default function Node(props) {
               </div>
             </div>
           </div>
-          <div className="text">with:</div>
+          <div className="text">with</div>
         </>
       )}
     </>

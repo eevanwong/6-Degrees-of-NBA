@@ -1,6 +1,6 @@
 .player-container,
 .team-container {
-  max-width: 280px;
+  max-width: 290px;
   height: 150px;
   border-style: solid;
   border-width: 1.5px;
@@ -19,6 +19,7 @@
 
 .player-node {
   display: flex;
+  height: 150px;
   flex-direction: row;
   justify-content: space-evenly;
   margin: 0 auto;
@@ -51,12 +52,12 @@
   border-radius: 30px;
 }
 
-.player-txt,
-.team-txt {
+.player-txt {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  margin-top: 1rem;
+  align-items: center;
+  width: 80%;
+  margin: auto 0;
   margin-left: 0.75rem;
   margin-right: 0.75rem;
   letter-spacing: 0.5px;
@@ -66,14 +67,24 @@
 }
 
 .team-txt {
-  line-height: 150%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  letter-spacing: 0.5px;
+  color: var(--background-color);
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: auto 0;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  line-height: 120%;
 }
 
 .text {
   display: flex;
   align-items: center;
   flex-direction: column;
-  font-size: 2rem;
+  font-size: 1.75rem;
   color: #e4e4e4;
   font-weight: 600;
   margin-bottom: 2rem;

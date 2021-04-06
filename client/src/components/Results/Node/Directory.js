@@ -18,7 +18,7 @@ export default {
   MIA: "Miami Heat",
   MIL: "Milwaukee Bucks",
   MIN: "Minnesota Timberwolves",
-  NOP: "New Orleans Pelicans",
+  NOH: "New Orleans Pelicans",
   NYK: "New York Knicks",
   OKC: "Oklahoma City Thunder",
   ORL: "Orlando Magic",

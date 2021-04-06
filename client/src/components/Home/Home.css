@@ -25,26 +25,39 @@ span {
   color: #f9a01b;
 }
 
+.spacer {
+  margin: 0 auto;
+}
+
 .inputs {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   margin-top: 4rem;
-}
-
-.input-box {
-  width: 100%;
-  height: 90%;
-  background-color: white;
+  margin-bottom: 2rem;
 }
 
 input[type="text"] {
   width: 450px;
+  color: white;
+  font-family: "Titillium Web";
   font-size: 24px;
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
   border-radius: 5px;
+  border-color: white;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+}
+
+.options {
+  height: 100px;
+  max-width: 450px;
+  overflow-y: auto;
 }
 
 .invalid {
@@ -86,7 +99,7 @@ select {
     align-items: center;
   }
 
-  input[type="text"] {
+  .input {
     width: 100%;
   }
 }

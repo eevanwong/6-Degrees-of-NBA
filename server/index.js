@@ -37,8 +37,9 @@ app.get("/", (req, res) => {
 
 app.get("/getConnections", async (req, res) => {
   //console.log("Querying neo4j database");
-  let path = null; //arbitrary null value
+  let path = {}; //arbitrary null value
   try {
+    console.log("?");
     path = await session.run(
       "match (m:Player {name: $Player1 }), (n:Player {name: $Player2 }), p=shortestPath((m)-[*..6]-(n)) return p",
       { Player1: players.P1, Player2: players.P2 }
