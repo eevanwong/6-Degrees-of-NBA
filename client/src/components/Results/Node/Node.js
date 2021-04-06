@@ -42,6 +42,11 @@ export default function Node(props) {
     case "BRK":
       team[0] = "NJN";
       break;
+    case "WSW":
+      team[0] = "WAS";
+      break;
+    case "WSB":
+      team[0] = "WAS";
   }
 
   let teamName = Directory[team[0]];
@@ -56,7 +61,7 @@ export default function Node(props) {
                 src={
                   "https://www.basketball-reference.com/req/202103225/images/players/" +
                   player[1].substring(0, 5) +
-                  player[0].substring(0, 2) +
+                  player[0].replace(".", "").substring(0, 2) +
                   "01" +
                   ".jpg"
                 }
@@ -64,7 +69,7 @@ export default function Node(props) {
                   backgroundImage: `url(${
                     "https://www.basketball-reference.com/req/202103225/images/players/" +
                     player[1].substring(0, 5) +
-                    player[0].substring(0, 2) +
+                    player[0].replace(".", "").substring(0, 2) +
                     "02" +
                     ".jpg"
                   })`,

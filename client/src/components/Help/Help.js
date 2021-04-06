@@ -5,20 +5,22 @@ export default function Help() {
   return (
     <div className="help-container">
       <div className="margin">
-        <div className="help-tit">
-          Seems the search didn't work out. What might have happened?
-        </div>
         <div className="help-txt">
-          Many different things could have caused a player search to result in
-          an error:
-          <ul>
-            <li>Player name was mispelled</li>
-            <li>
-              Player's overall career ended before 1983 (player is not found)
-            </li>
-          </ul>
-          If you think this was a mistake, feel free to contact me or make an
-          issue on the github repo!
+          If the 2 players you put in were valid (which most likely were), and
+          you somehow found the error message. Congrats! You probably found a
+          connection that exceeded 6 connections!
+          <br />
+          <br />
+          Ultimately, all players are connected in some way, even if they exceed
+          6 degrees. Nevertheless, an actual error could have occurred regarding
+          the connection to the database.
+          <br />
+          <br />
+          If you think this was a mistake, feel free to{" "}
+          <span>
+            <a href="mailto:e92wong@uwaterloo.ca">contact me</a>
+          </span>
+          !
         </div>
       </div>
     </div>

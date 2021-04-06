@@ -30,4 +30,5 @@ export default {
   TOR: "Toronto Raptors",
   UTA: "Utah Jazz",
   WAS: "Washington Wizards",
+  WSW: "Washington Wizards",
 };

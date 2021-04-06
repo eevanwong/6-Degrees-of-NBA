@@ -52,6 +52,7 @@ input[type="text"] {
   display: flex;
   flex-direction: column;
   width: 450px;
+  margin-bottom: 2rem;
 }
 
 .options {

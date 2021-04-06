@@ -41,7 +41,7 @@ app.get("/getConnections", async (req, res) => {
   try {
     console.log("?");
     path = await session.run(
-      "match (m:Player {name: $Player1 }), (n:Player {name: $Player2 }), p=shortestPath((m)-[*..6]-(n)) return p",
+      "match (m:Player {name: $Player1 }), (n:Player {name: $Player2 }), p=shortestPath((m)-[*]-(n)) return p",
       { Player1: players.P1, Player2: players.P2 }
     );
   } catch (err) {

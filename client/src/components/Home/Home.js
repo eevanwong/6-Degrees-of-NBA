@@ -6,6 +6,9 @@ import Options from "./Options/Names";
 import Select, { createFilter } from "react-select";
 import { FixedSizeList as List } from "react-window";
 
+//account for apostrophes and dashes
+//acc. for charlotte hornets
+
 export default function Home(props) {
   const [validInput, setValidInput] = useState(true);
   const [message, setMessage] = useState("");
