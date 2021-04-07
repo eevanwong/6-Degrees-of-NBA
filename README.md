@@ -32,7 +32,7 @@ After I had a decent idea of the project I was going to make, I needed to questi
 
 I had realized that APIs were inadequate, as they would only hold the active players in the current season. Furthermore, they often would not hold a player's previous info (i.e previous teams) and would not have pics of inactive players.
 
-Through the fanatics.com website, they had described that they had gotten all of their information from [basketball-reference.com](https://www.basketball-reference.com/). Looking through the website, I was super excited. From headshots to previous teams, they had everything I needed. Thus, I began working on a web scraper that would grab all of the players on all of the teams.
+Through the fanatics.com website, I found [basketball-reference.com](https://www.basketball-reference.com/). Looking through the website, I was super excited. From headshots to previous teams, they had everything I needed. I began working on a web scraper that would grab all players on each team.
 
 With Puppeteer, I grabbed all the links of each team, then went through all past iterations of each team and accounted for each player. I stored all of the players in each team in each season as an object like so:
 
