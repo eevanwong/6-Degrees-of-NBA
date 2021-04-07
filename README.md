@@ -6,6 +6,8 @@ Data used for this site was all [web scraped](https://github.com/eevanwong/Baske
 
 At the moment, I am trying to find a reasonable hosting platform for a neo4j database; however, many are very complex, or too expensive in comparison to the small size of this database ( < 1GB). You can (if you'd like) check out the frontend which is connected to the server; however, at the moment, the database is confined to my local machine.
 
+The frontend is hosted with [netlify](https://stupefied-albattani-bd84bb.netlify.app/) (no database, so unable to perform its wanted functionality).
+
 ## Inspiration
 
 The Six Degrees of Separation was a super interesting concept to me. There was a multitude of different ways I could go about it. With basketball being a growing interest, I had thought about how I could show connections between different NBA players and how it would be able to find connections between the most unlikely of players.
