@@ -83,7 +83,7 @@ In terms of getting the information, I used axios for post and get requests from
 
 I encoutered many issues that I hadn't considered until I encountered them head on.
 
-The biggest issue was hosting. I have been searching for ways to host but it's very infuriating to be met with very complex systems (Google Cloud Platform gave me a headache) for such a relatively small database.
+The biggest issue was hosting. I have been searching for ways to host but it's very infuriating to be met with very complex systems (Google Cloud Platform gave me a headache) for such a relatively small database. I've still been searching for alternatives.
 
 There were a lot of things that required finetuning. For example, as I was getting past players and teams from the past 38 years, I encountered a lot of teams that I didn't recognize because they were teams that rebranded into newer teams. The names were different which caused slight altercations in the frontend.
 
