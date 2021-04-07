@@ -104,3 +104,7 @@ Pictures
 ![image](https://user-images.githubusercontent.com/71536798/113791142-017adf00-9711-11eb-89ca-82fe7598d542.png)
 
 ## Future Updates
+
+1. Hosting so that users can actually try it out for themselves.
+
+2. Add legacy pictures to showcase older brands that were rebranded.
