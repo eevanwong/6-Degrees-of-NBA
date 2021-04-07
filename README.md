@@ -73,7 +73,7 @@ and querying it from the backend was as simple as:
 
 `match (m:Player {name: $Player1 }), (n:Player {name: $Player2 }), p=shortestPath((m)-[*..6]-(n)) return p`
 
-It was very interesting to see the nodes of all the different players and how they connect
+It was very interesting to see the nodes of all the different players and how they connect, there were connections that ranged from the old, legendary players to the up and coming rookies.
 
 ![image](https://user-images.githubusercontent.com/71536798/113791354-6fbfa180-9711-11eb-8abc-74791e8bf501.png)
 
