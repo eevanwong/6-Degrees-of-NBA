@@ -61,6 +61,8 @@ With Puppeteer, I grabbed all the links of each team, then went through all past
 
 I counted trades as automatically being a part of the team. If 2 players were traded for each other, they counted as having played together on both teams. For example, although Lou Williams was traded from the Clippers for Rajon Rondo, they are still on the same team.
 
+Luckily, all of the pages were .html pages, due to there being little to no javascript, there was not much loading time to each page. Nevertheless, scraping all the names took on average 30 minutes (~1 minute per team).
+
 ## Working with NERN Stack
 
 I wanted to program with what I was comfortable with. I was familiar with React and Node/Express from previous projects but Neo4j was a mystery for me. From Emily's documentation of her project, she noted that SQL took way too long to find the shortest path and neo4j was very simplistic and made for this type of project. Upon my research with this, I can agree with this statement.
