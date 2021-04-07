@@ -10,7 +10,7 @@ The frontend is hosted with [netlify](https://stupefied-albattani-bd84bb.netlify
 
 ## Inspiration
 
-The Six Degrees of Separation was a super interesting concept to me. There was a multitude of different ways I could go about it. With basketball being a growing interest, I had thought about how I could show connections between different NBA players and how it would be able to find connections between the most unlikely of players.
+The Six Degrees of Separation was a super interesting concept to me. How could I apply this to basketball? Basketball was a growing interest of mine, I had thought about how I could show connections between different NBA players and how it would be able to find connections between the most unlikely of players.
 
 While I was researching this topic, I had come across fanatics.com's version of this. However, they did not go in-depth in how each of the players was connected, in regards to which year they played on in which team.
 
