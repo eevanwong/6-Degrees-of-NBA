@@ -8,6 +8,7 @@ Data used for this site was all [web scraped](https://github.com/eevanwong/Baske
 - Node.js
 - Express.js
 - Neo4j
+- Axios
 
 At the moment, I am trying to find a reasonable hosting platform for a neo4j database; however, many are very complex, or too expensive in comparison to the small size of this database ( < 1GB). You can (if you'd like) check out the frontend which is connected to the server; however, at the moment, the database is confined to my local machine.
 
