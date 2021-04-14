@@ -2,7 +2,12 @@
 
 Six Degrees of NBA showcases that players are interconnected no matter what decade and the team they play in, from Michael Jordan to Kyle Lowry to Lebron James. This project was inspired by Emily Louie's [Six Degrees of Spotify](https://github.com/emilyslouie/six-degrees) and Fanatics.com's [Social Network of the NBA](http://content.fanatics.com/six-degrees-nba/).
 
-Data used for this site was all [web scraped](https://github.com/eevanwong/Basketball-Reference-Scraper) from basketball-reference.com using Puppeteer as of March 2021. The site was created with React, Node/Express, and Neo4j.
+Data used for this site was all [web scraped](https://github.com/eevanwong/Basketball-Reference-Scraper) from basketball-reference.com using Puppeteer as of March 2021. The site was created with:
+
+- React.js
+- Node.js
+- Express.js
+- Neo4j
 
 At the moment, I am trying to find a reasonable hosting platform for a neo4j database; however, many are very complex, or too expensive in comparison to the small size of this database ( < 1GB). You can (if you'd like) check out the frontend which is connected to the server; however, at the moment, the database is confined to my local machine.
 
