@@ -120,6 +120,8 @@ Pictures
 
 ## Future Updates
 
-1. Hosting so that users can try it out for themselves.
+1. Hosting so that users can try it out for themselves (Firebase?).
 
 2. Add legacy pictures to showcase older brands that were rebranded.
+
+3. Automation of web scraping to update database (requires hosting of database though) 
