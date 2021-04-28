@@ -12,11 +12,13 @@ export default function Results() {
 
   useEffect(() => {
     axios({
-      method: "get",
-      url: "http://localhost:3001/" + "getConnections",
+      method: "GET",
+      // url: "http://localhost:3001/" + "getConnections",
+      url: "http://127.0.0.1:5000/" + "getConnections",
       headers: {
         "Access-Control-Allow-Origin":
-          "http://localhost:3001/" + "getConnections",
+          // "http://localhost:3001/" + "getConnections",
+          "http://127.0.0.1:5000/" + "getConnections",
         "Access-Control-Allow-Headers": "*",
       },
     })
@@ -77,7 +79,7 @@ export default function Results() {
               {nodes.map((node, i) => {
                 return (
                   <Node
-                    type={node.labels[0]}
+                    type={node.labels} //with javascript backend, labels[0]
                     name={node.properties.name}
                     key={i}
                   />
