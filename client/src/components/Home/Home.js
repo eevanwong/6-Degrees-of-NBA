@@ -28,22 +28,24 @@ export default function Home(props) {
       );
     } else {
       setValidInput(true);
-      console.log(player1);
       let params = new URLSearchParams();
       params.append("player1", player1.value);
       params.append("player2", player2.value);
 
       axios({
         method: "POST",
-        url: "http://localhost:3001/" + "getConnections",
+        // url: "http://localhost:3001/" + "getConnections",
+        url: "http://127.0.0.1:5000/" + "getConnections",
         params: params,
         headers: {
           "Access-Control-Allow-Origin":
-            "http://localhost:3001/" + "getConnections",
+            // "http://localhost:3001/" + "getConnections",
+            "http://127.0.0.1:5000/" + "getConnections",
           "Access-Control-Allow-Headers": "*",
         },
       })
         .then((res) => {
+          console.log(res);
           props.history.push("/results");
         })
         .catch((err) => {
