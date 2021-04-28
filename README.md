@@ -6,7 +6,7 @@ Data used for this site was all [web scraped](https://github.com/eevanwong/Baske
 
 - React.js
 - Node.js
-- Express.js
+- Express.js/Flask (wanted to try out flask)
 - Neo4j
 - Axios
 
