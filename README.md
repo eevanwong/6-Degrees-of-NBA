@@ -4,6 +4,7 @@
 
 - Unit testing with Jest
 - User Authentication to hold favourite players/ pairings
+- Use Docker for easier sharing and deployment of neo4j database
 
 ## 
 
