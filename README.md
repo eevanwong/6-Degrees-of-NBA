@@ -1,5 +1,10 @@
 # Six Degrees of NBA
 
+##Updates that are currently being implemented
+
+- Unit testing with Jest
+- User Authentication to hold favourite players/ pairings
+
 Six Degrees of NBA showcases that players are interconnected no matter what decade and the team they play in, from Michael Jordan to Kyle Lowry to Lebron James. This project was inspired by Emily Louie's [Six Degrees of Spotify](https://github.com/emilyslouie/six-degrees) and Fanatics.com's [Social Network of the NBA](http://content.fanatics.com/six-degrees-nba/).
 
 Data used for this site was all [web scraped](https://github.com/eevanwong/Basketball-Reference-Scraper) from basketball-reference.com using Puppeteer as of March 2021. The site was created with:
