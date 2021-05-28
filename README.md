@@ -1,6 +1,6 @@
 # Six Degrees of NBA
 
-##Updates that are currently being implemented
+## Updates that are currently being implemented
 
 - Unit testing with Jest
 - User Authentication to hold favourite players/ pairings
