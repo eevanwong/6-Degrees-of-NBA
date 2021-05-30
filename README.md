@@ -5,7 +5,6 @@
 - Reorganizing components (actions, hooks, etc.)
 - Use Docker for easier sharing and deployment of neo4j database
 - Unit testing with Jest
-- User Authentication to hold favourite players/pairings (?)
 
 ## 
 
