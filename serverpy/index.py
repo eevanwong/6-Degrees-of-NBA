@@ -1,3 +1,5 @@
+#see express server for needed refactors 
+
 import os
 from flask import Flask, request
 from flask import jsonify
@@ -57,8 +59,7 @@ def get_connections():
 
         # for record in connections:
         #     print(type(record[0].nodes))    
-        
-        #WHY FOR THE LOVE OF GOD IS PROPERTIES NOT AN ATTRIBUTE OF NODE???? IT LEGIT SAYS THAT RIGHT THERE
+    
 
         for i in connections[0]['p']:   
 

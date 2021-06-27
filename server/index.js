@@ -1,3 +1,8 @@
+//HUGE REFACTOR NEEDED:
+//1. remove post req (we dont need that)
+//2. use get req, in body of req have the names of the players instead
+//3. organize backend into sections (need to research bit more on this)
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const neo4j = require("neo4j-driver");
@@ -72,9 +77,9 @@ app.get("/getConnections", async (req, res) => {
   }
 });
 
-app.post("/getConnections", (req, res) => {
+app.post("/getConnections", (req, res) => { 
   console.log(".");
-  let player1 = req.query.player1.toLowerCase().trim(); //why is it the query?
+  let player1 = req.query.player1.toLowerCase().trim(); 
   let player2 = req.query.player2.toLowerCase().trim();
 
   players = { P1: player1, P2: player2 };
