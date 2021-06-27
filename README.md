@@ -2,8 +2,8 @@
 
 ## Updates to be implemented
 
-- Reorganizing components (actions, hooks, etc.)
-- Use Docker for easier sharing and deployment of neo4j database
+- Reorganizing/refactor backend
+- Use Docker for easier sharing and deployment of backend/API
 - Unit testing with Jest
 
 ## 
