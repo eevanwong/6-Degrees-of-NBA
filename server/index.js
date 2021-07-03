@@ -40,14 +40,21 @@ app.get("/", (req, res) => {
   res.send({ message: "welcome" });
 });
 
-app.get("/getConnections", async (req, res) => {
-  //console.log("Querying neo4j database");
+app.get("/getConnections/:player1/:player2", async (req, res) => {
+  console.log("Querying neo4j database");
+  console.log(req.params);
+
+  playerOne = req.params.player1.toLowerCase().trim();
+  playerTwo = req.params.player2.toLowerCase().trim();
+
+  req.params = { playerOne, playerTwo };
+
   let path = {}; //arbitrary null value
   try {
     console.log("?");
     path = await session.run(
       "match (m:Player {name: $Player1 }), (n:Player {name: $Player2 }), p=shortestPath((m)-[*]-(n)) return p",
-      { Player1: players.P1, Player2: players.P2 }
+      { Player1: playerOne, Player2: playerTwo }
     );
   } catch (err) {
     res.send("NMF");
@@ -75,15 +82,4 @@ app.get("/getConnections", async (req, res) => {
       res.send(RESULTS);
     }
   }
-});
-
-app.post("/getConnections", (req, res) => { 
-  console.log(".");
-  let player1 = req.query.player1.toLowerCase().trim(); 
-  let player2 = req.query.player2.toLowerCase().trim();
-
-  players = { P1: player1, P2: player2 };
-  console.log("Request to find connection between:");
-  console.log(players.P1 + " & " + players.P2);
-  res.send("Success");
 });
