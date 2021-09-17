@@ -3,36 +3,13 @@ import Node from "./Node/Node";
 import { Link } from "react-router-dom";
 import Loading from "../Loading/Loading";
 import Button from "../Button/Button";
-import axios from "axios";
+// import axios from "axios";
 import "./Results.css";
 require("dotenv").config();
 
-export default function Results() {
-  const [nodes, setNodes] = useState([]);
-
-  useEffect(() => {
-    axios({
-      method: "GET",
-      url: "http://localhost:3001/" + "getConnections", //node
-      // url: "http://127.0.0.1:5000/" + "getConnections", //flask
-      headers: {
-        "Access-Control-Allow-Origin":
-          "http://localhost:3001/" + "getConnections",
-          // "http://127.0.0.1:5000/" + "getConnections",
-        "Access-Control-Allow-Headers": "*",
-      },
-    })
-      .then((resp) => {
-        setNodes(resp.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
-
-  //console.log(getReq);
-  //console.log(path);
-  console.log(nodes);
+export default function Results(props) {
+  console.log(props.location.state.nodes);
+  const nodes = props.location.state.nodes;
 
   if (nodes === null || nodes === undefined || nodes.length === 0) {
     return (
@@ -79,7 +56,7 @@ export default function Results() {
               {nodes.map((node, i) => {
                 return (
                   <Node
-                    type={node.labels[0]} //with javascript backend, labels[0]
+                    type={node.labels} //with javascript backend, labels[0]
                     name={node.properties.name}
                     key={i}
                   />

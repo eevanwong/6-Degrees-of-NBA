@@ -40,18 +40,18 @@ app.get("/", (req, res) => {
   res.send({ message: "welcome" });
 });
 
-app.get("/getConnections/:player1/:player2", async (req, res) => {
+app.post("/getConnections", async (req, res) => {
   console.log("Querying neo4j database");
   console.log(req.params);
 
   playerOne = req.params.player1.toLowerCase().trim();
   playerTwo = req.params.player2.toLowerCase().trim();
 
-  req.params = { playerOne, playerTwo };
+  // req.params = { playerOne, playerTwo };
 
   let path = {}; //arbitrary null value
   try {
-    console.log("?");
+    // console.log("?");
     path = await session.run(
       "match (m:Player {name: $Player1 }), (n:Player {name: $Player2 }), p=shortestPath((m)-[*]-(n)) return p",
       { Player1: playerOne, Player2: playerTwo }
@@ -63,7 +63,7 @@ app.get("/getConnections/:player1/:player2", async (req, res) => {
 
     console.log(path);
     if (path.records.length === 0) {
-      res.send("NMF"); //NO MATCHES FOUND
+      res.status(404).send("NMF"); //NO MATCHES FOUND
     }
 
     const record = path.records[0];
@@ -79,7 +79,7 @@ app.get("/getConnections/:player1/:player2", async (req, res) => {
         RESULTS.push(node.segments[i].start);
       }
       RESULTS.push(node.segments[node.segments.length - 1].end);
-      res.send(RESULTS);
+      res.status(200).send(RESULTS);
     }
   }
 });

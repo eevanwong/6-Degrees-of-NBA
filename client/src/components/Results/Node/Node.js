@@ -25,11 +25,11 @@ export default function Node(props) {
   if (props.type === "Team") {
     //team = removeDiacritics(name);
     team = name.split("-");
-    console.log(team);
+    // console.log(team);
   } else {
     player = removeDiacritics(name);
     player = player.split(" ");
-    console.log(player);
+    // console.log(player);
   }
 
   switch (team[0]) {

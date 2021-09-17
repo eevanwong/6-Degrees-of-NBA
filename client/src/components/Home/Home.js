@@ -34,22 +34,26 @@ export default function Home(props) {
 
       axios({
         method: "POST",
-        url: "http://localhost:3001/" + "getConnections",
-        // url: "http://127.0.0.1:5000/" + "getConnections", 
+        // url: "http://localhost:3001/" + "getConnections",
+        url: "http://127.0.0.1:5000/" + "getConnections", 
         params: params,
         headers: {
           "Access-Control-Allow-Origin":
-            "http://localhost:3001/" + "getConnections",
-            // "http://127.0.0.1:5000/" + "getConnections",
+            // "http://localhost:3001/" + "getConnections",
+            "http://127.0.0.1:5000/" + "getConnections",
           "Access-Control-Allow-Headers": "*",
         },
       })
         .then((res) => {
           console.log(res);
-          props.history.push("/results");
+          console.log(res.data);
+          props.history.push("/results", { nodes: res.data });
         })
         .catch((err) => {
           console.log(err);
+          setMessage("Hmm, something went wrong, please try again.")
+          setValidInput(false);
+          // props.history.push("/results", { nodes: "what"} );
         });
     }
   }

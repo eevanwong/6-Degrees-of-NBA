@@ -8,20 +8,16 @@ export default function Header() {
     <div className="bgcontainer">
       <div className="container">
         <div className="logo">
-          <Router>
-            <Link to="/">
-              <img src={logo} alt="sixlogo" />
-            </Link>
-          </Router>
+          <Link to="/">
+            <img src={logo} alt="sixlogo" />
+          </Link>
         </div>
         <div className="about">
-          <Router>
-            <Link to="/about">
-              <h2>ABOUT</h2>
-            </Link>
-          </Router>
+          <Link to="/about">
+            <h2>ABOUT</h2>
+          </Link>
         </div>
       </div>
-    </div >
+    </div>
   );
 }
