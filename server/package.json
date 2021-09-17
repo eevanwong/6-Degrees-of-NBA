@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently \"yarn run client\" \"yarn run server\"",
     "client": "cd client && yarn start",
-    "start": "node server/index.js"
+    "start": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",

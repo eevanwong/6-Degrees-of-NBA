@@ -2,9 +2,8 @@
 
 ## Updates to be implemented
 
-- Reorganizing/refactor backend
 - Use Docker for easier sharing and deployment of backend/API
-- Unit testing with Jest
+- Unit testing with Jest/Chai
 
 ## 
 
