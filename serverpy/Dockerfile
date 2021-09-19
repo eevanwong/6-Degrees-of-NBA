@@ -5,7 +5,7 @@ LABEL author='evan'
 
 # extra metadata
 LABEL version="1.0"
-LABEL description="6-Degrees flask microservice dockerized"
+LABEL description="6-Degrees flask microservice"
 
 WORKDIR /app
 

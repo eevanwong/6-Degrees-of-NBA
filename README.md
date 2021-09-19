@@ -3,7 +3,6 @@
 ## Updates to be implemented
 
 - Use Docker for easier sharing and deployment of backend/API
-- Unit testing with Jest/Chai
 
 ## 
 

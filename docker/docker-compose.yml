@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+    six-deg-backend: 
+      build: ../serverpy #existing dockerfile
+      ports: 
+      - 5000:5000
+    db:
+      image: neo4j
+      volumes:
+      - ./db-data/:/data
+      ports:
+      - 7474:7474
+      - 7687:7687
