@@ -5,12 +5,12 @@ from flask import Flask, jsonify, Response, request
 from flask_cors import CORS
 from neo4j import GraphDatabase
 from dotenv import dotenv_values
+from neo4j.api import basic_auth
 config = dotenv_values('.env')
 
-db_host = os.environ.get('NEO4J_HOST', '172.19.0.2')
+db_host = os.environ.get('NEO4J_HOST', 'localhost')
 db_port = os.environ.get('NEO4J_PORT', '7687')
-print(f'bolt://{db_host}:{db_port}')
-driver = GraphDatabase.Driver(f'bolt://{db_host}:{db_port}')
+driver = GraphDatabase.driver(f'bolt://{db_host}:{db_port}', auth=basic_auth('neo4j', os.environ.get('PASS')))
 
 app = Flask(__name__)
 CORS(app)
@@ -30,7 +30,7 @@ def match_players(tx, player1, player2):
 
 def parseConnections(connections):
     results = []
-    print(connections)
+
     for i in connections[0]['p']:   
 
         for j in range(len((i.nodes))):
@@ -67,16 +67,16 @@ def query_database(player1, player2):
 
     except:
         print('something went wrong')
-        return Response('something went wrong', status=404)
+        return 'nothing found'
 
     if len(connections) == 0:
-        return 'No connections found',204 # if nothing about connections
+        return connections
     else:
         try:
-            return Response(parseConnections(connections), status=400, mimetype='application/json')
+            return parseConnections(connections)
         except:
             print("Something went wrong")
-            return Response(status=404)
+            return 'Nothing found'
 
     #print connections: 
     # [<Record p=<Path start=<Node id=5660 labels=frozenset({'Player'}) properties={'name': 'lebron james'}> end=<Node id=4882 labels=frozenset({'Player'}) properties={'name': 'james harden'}> size=4>>]
@@ -96,17 +96,15 @@ def query_database(player1, player2):
     # for record in connections:
     #     print(type(record[0].nodes))    
 
-
-
-
 @app.route('/getConnections', methods=['POST'])
 def get_connections():    
     if request.method == 'POST':
         player1 = request.args['player1'].lower()
         player2 = request.args['player2'].lower()
         
-        print(player1 + ' ' + player2);
+        print(player1 + ' ' + player2)
         results = query_database(player1,player2)
 
+        return results, 200
     
 

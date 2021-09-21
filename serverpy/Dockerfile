@@ -19,7 +19,7 @@ ENV USER = neo4j
 ENV PASS = neo4j
 # ENV PORT = 5000
 
-CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
+CMD [ "flask", "run", "--host=0.0.0.0"]
 
 # cd to serverpy
 # build the image with  $ docker build -t six-deg-flask .

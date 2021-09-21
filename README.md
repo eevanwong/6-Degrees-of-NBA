@@ -1,11 +1,5 @@
 # Six Degrees of NBA
 
-## Updates to be implemented
-
-- Use Docker for easier sharing and deployment of backend/API
-
-## 
-
 Six Degrees of NBA showcases that players are interconnected no matter what decade and the team they play in, from Michael Jordan to Kyle Lowry to Lebron James. This project was inspired by Emily Louie's [Six Degrees of Spotify](https://github.com/emilyslouie/six-degrees) and Fanatics.com's [Social Network of the NBA](http://content.fanatics.com/six-degrees-nba/).
 
 Data used for this site was all [web scraped](https://github.com/eevanwong/Basketball-Reference-Scraper) from basketball-reference.com using Puppeteer as of March 2021. The site was created with:
@@ -19,6 +13,24 @@ Data used for this site was all [web scraped](https://github.com/eevanwong/Baske
 At the moment, I am trying to find a reasonable hosting platform for a neo4j database; however, many are very complex, or too expensive in comparison to the small size of this database ( < 1GB). You can (if you'd like) check out the frontend which is connected to the server; however, at the moment, the database is confined to my local machine.
 
 The frontend is hosted with [netlify](https://stupefied-albattani-bd84bb.netlify.app/) (no database, so unable to perform its wanted functionality)
+
+## Quickstart
+
+Note: You will need 3 seperate terminals, one for the client, one for docker (backend and database), and one for the batch app
+
+- Clone repo
+- Start up frontend 
+  - Run ```cd client```
+  - Run ```yarn add```
+- Start up backend + database
+  - Run ```cd docker```
+  - Run ```docker compose up```
+- Run batch app
+  - Run ```cd batch```
+  - Run ```npm install```
+  - Run ```node writetoDatabase```
+- Once you're done, make sure to run ```docker compose down``` (or just ctrl+c in the terminal) to stop the server and database
+
 
 ## Inspiration
 

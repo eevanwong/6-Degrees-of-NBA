@@ -14,7 +14,7 @@ services:
   neo4jdb:
     image: neo4j:latest
     volumes:
-      - neo4j_data:/data/
+      - ./neo4j_data/:/data/
     restart: always
     environment: 
       - NEO4J_AUTH=none
