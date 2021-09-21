@@ -1,14 +1,29 @@
-version: '3.8'
+version: '3.9'
 
 services:
-    six-deg-backend: 
-      build: ../serverpy #existing dockerfile
-      ports: 
+  six-deg-backend: 
+    build: ../serverpy #existing dockerfile
+    restart: always
+    ports: 
       - 5000:5000
-    db:
-      image: neo4j
-      volumes:
-      - ./db-data/:/data
-      ports:
+    depends_on: 
+      - neo4jdb
+    environment:
+      NEO4J_HOST: neo4jdb
+
+  neo4jdb:
+    image: neo4j:latest
+    volumes:
+      - neo4j_data:/data/
+    restart: always
+    environment: 
+      - NEO4J_AUTH=none
+    ports:
       - 7474:7474
       - 7687:7687
+
+  
+
+## volumes to be generated, these are saved somewhere for repeated use by docker
+volumes:
+    neo4j_data:
