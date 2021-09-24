@@ -20,16 +20,12 @@ Note: You will need 3 seperate terminals, one for the client, one for docker (ba
 
 - Clone repo
 - Start up frontend 
-  - Run ```cd client```
-  - Run ```yarn add```
+  - Run ```npm run run-client```
 - Start up backend + database
-  - Run ```cd docker```
-  - Run ```docker compose up```
+  - Run ```npm run run-backend```
 - Run batch app
-  - Run ```cd batch```
-  - Run ```npm install```
-  - Run ```node writetoDatabase```
-- Once you're done, make sure to run ```docker compose down``` (or just ctrl+c in the terminal) to stop the server and database
+  - Run ```npm run run-batch```
+- Once you're done, make sure to run close the docker containers by ctrl+c the terminal, or running ```docker compose down```.
 
 
 ## Inspiration
