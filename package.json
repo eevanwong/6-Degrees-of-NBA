@@ -1,0 +1,11 @@
+{
+  "name": "6degrees",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "run-backend": "cd docker && docker compose up",
+    "run-client": "cd client && yarn start"
+  },
+  "author": "",
+  "license": "ISC"
+}
