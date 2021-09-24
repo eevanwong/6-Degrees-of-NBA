@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
+    "run-client": "cd client && yarn start",
     "run-backend": "cd docker && docker compose up",
-    "run-client": "cd client && yarn start"
+    "run-batch": "cd batch && node writetoDatabase"
   },
   "author": "",
   "license": "ISC"
