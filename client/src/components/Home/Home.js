@@ -33,14 +33,12 @@ export default function Home(props) {
       params.append("player2", player2.value);
 
       axios({
-        method: "POST",
-        // url: "http://localhost:3001/" + "getConnections",
-        url: "http://127.0.0.1:5000/" + "getConnections", 
+        method: "GET",
+        url: "http://localhost:5000/get-connections", 
         params: params,
         headers: {
           "Access-Control-Allow-Origin":
-            // "http://localhost:3001/" + "getConnections",
-            "http://127.0.0.1:5000/" + "getConnections",
+            "http://localhost:5000/get-connections",
           "Access-Control-Allow-Headers": "*",
         },
       })

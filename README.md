@@ -16,20 +16,12 @@ The frontend is hosted with [netlify](https://stupefied-albattani-bd84bb.netlify
 
 ## Quickstart
 
-Note: You will need 3 seperate terminals, one for the client, one for docker (backend and database), and one for the batch app
-
 - Clone repo
-- Start up frontend 
-  - Run ```cd client```
-  - Run ```yarn add```
-- Start up backend + database
-  - Run ```cd docker```
-  - Run ```docker compose up```
-- Run batch app
-  - Run ```cd batch```
-  - Run ```npm install```
-  - Run ```node writetoDatabase```
-- Once you're done, make sure to run ```docker compose down``` (or just ctrl+c in the terminal) to stop the server and database
+- Run App
+  - Run ```npm run start```
+- Run seeding app
+  - Run ```npm run seed```
+- Once you're done, make sure to run close the docker containers by ctrl+c the terminal, and remove them with ```docker compose down```.
 
 
 ## Inspiration

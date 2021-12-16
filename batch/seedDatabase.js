@@ -1,12 +1,10 @@
 const neo4j = require("neo4j-driver");
 const fs = require("fs");
 
-require("dotenv").config();
+const USER = 'neo4j';
+const PASS = 'starwarsclonewars'; // some random pass idk
 
-const USER = process.env.USER;
-const PASS = process.env.PASS;
-
-const driver = neo4j.driver(process.env.URI, neo4j.auth.basic(USER, PASS));
+const driver = neo4j.driver('bolt://localhost:7687', neo4j.auth.basic(USER, PASS));
 
 const session = driver.session();
 

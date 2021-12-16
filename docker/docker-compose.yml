@@ -1,6 +1,14 @@
 version: '3.9'
 
 services:
+  six-deg-frontend:
+    build: ../client
+    restart: always
+    ports:
+      - 3000:3000
+    depends_on:
+      - six-deg-backend
+
   six-deg-backend: 
     build: ../serverpy #existing dockerfile
     restart: always
