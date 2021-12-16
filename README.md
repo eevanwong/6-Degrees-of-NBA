@@ -20,7 +20,7 @@ The frontend is hosted with [netlify](https://stupefied-albattani-bd84bb.netlify
 - Run App
   - Run ```npm run start```
 - Run seeding app
-  - Run ```npm run seed```
+  - Run ```npm run seed``` (this will take a bit of time, ~2 minutes)
 - Once you're done, make sure to run close the docker containers by ctrl+c the terminal, and remove them with ```docker compose down```.
 
 
