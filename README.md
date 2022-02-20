@@ -81,9 +81,9 @@ Luckily, all of the pages were .html pages, meaning there was little to no javas
 
 ## Working with NERN Stack
 
-I wanted to program with what I was comfortable with. I was familiar with React and Node/Express from previous projects but Neo4j was a mystery for me. From Emily's documentation of her project, she noted that SQL took way too long to find the shortest path and neo4j was very simplistic and made for this type of project. Upon my research with this, I can agree with this statement.
+I wanted to program with what I was comfortable with. I was familiar with React and Node/Express from previous projects but I wasn't sure of the database. I knew graph theory was important for determining how to find players within 6 connections, so I didd some digging and found graph databases, specfically neo4j. I read through neo4j documentation to figure out how best to achieve  my goal.
 
-With so many relationships, the complexity and length of SQL queries increase drastically. This is in contrast to Neo4j, with their cypher language, it was much easier:
+Now, why not try using SQL with their relationships? With what I understood, with so many relationships, the complexity and length of SQL queries increase drastically. This is in contrast to Neo4j, with their cypher language, it was much easier:
 
 `match (m:Team {name: $Team}) MERGE (n:Player {name: $name}) CREATE (n)-[:PLAYED_ON]->(m)`
 
